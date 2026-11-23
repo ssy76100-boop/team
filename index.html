@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-C.L.A.S.S. 연구 조직 · 함께 걷는 사람들</title>
+<meta name="description" content="AI·디지털 기반 교수·학습 혁신 프로젝트 AI-C.L.A.S.S.의 연구 조직과 함께 걷는 사람들을 소개합니다.">
+<meta property="og:title" content="AI-C.L.A.S.S. 함께 걷는 사람들">
+<meta property="og:description" content="연구 조직과 분과별 선생님들이 걸어온 길">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/*
+발자취 사이트와 같은 디자인 체계: Noto Sans KR 900 제목, 진남색 글자, 남색→보라 강조, 둥근 카드, 띠(band) 배치.
+*/
+:root{color-scheme:light dark;
+  --ink:#1E2A6E;--sub:#4A5580;--a1:#2B3A8C;--a2:#6B4FD8;
+  --bg:light-dark(#F4F6FF,#0F1533);--band-ink:light-dark(#1E2A6E,#E6E9FF);--band-sub:light-dark(#4A5580,#A9B1E0);
+  --card:light-dark(#FFFFFF,#18204A);--line:light-dark(#DDE2F7,#2A3366);--rail:light-dark(#AEB8E6,#4A5590)}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;overflow-x:clip;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--band-ink);font:16px/1.6 "Noto Sans KR",system-ui,sans-serif;overflow-x:clip;word-break:keep-all}
+
+/* ---------- 상단 메뉴 ---------- */
+.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;
+  padding:12px max(5vw,16px);background:light-dark(rgba(255,255,255,.86),rgba(15,21,51,.86));
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:900;font-size:20px;letter-spacing:-.01em;
+  text-decoration:none;color:var(--band-ink)}
+.brand svg{color:var(--a2)}
+.menu{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.menu::-webkit-scrollbar{display:none}
+.menu button,.menu a{flex:none;min-height:44px;padding:0 14px;border:0;border-radius:999px;background:none;cursor:pointer;
+  font:500 15px/1 "Noto Sans KR",system-ui,sans-serif;color:var(--band-sub);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+@media (hover:hover){.menu button:hover,.menu a:hover{background:light-dark(#EEF0FF,#222B5C);color:var(--band-ink)}}
+.menu button.on{color:var(--band-ink);font-weight:700;background:light-dark(#EEF0FF,#222B5C)}
+.menu a{color:var(--a2);font-weight:700}
+.menu :focus-visible,.brand:focus-visible{outline:3px solid var(--a2);outline-offset:2px}
+
+/* ---------- 공통 ---------- */
+.band{padding:clamp(40px,6vw,80px) max(5vw,16px)}
+.soft{background:light-dark(#EEF1FC,#121938)}
+.wrap{max-width:1160px;margin:0 auto}
+.sec-h{margin:0 0 8px;font-size:clamp(28px,3.2vw,40px);font-weight:900;letter-spacing:-.02em;line-height:1.1;color:var(--band-ink)}
+.sec-lead{margin:0 0 clamp(28px,4vw,48px);font-size:17px;color:var(--band-sub)}
+.chip{display:inline-block;padding:4px 11px;border-radius:999px;font-size:13px;font-weight:700;color:#fff;
+  background:linear-gradient(100deg,var(--a1),var(--a2));white-space:nowrap}
+
+/* ---------- 조직도 ---------- */
+.org-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px) minmax(0,1fr);align-items:start}
+.left{display:flex;align-items:center;justify-content:flex-end;gap:0}
+.agency{padding:16px 18px;border-radius:20px;background:var(--card);border:1px solid var(--line);box-shadow:0 12px 30px -20px rgba(43,58,140,.45)}
+.agency-k{display:block;margin-bottom:8px;font-size:13.5px;font-weight:700;color:var(--a2)}
+.agency ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.agency li{display:flex;flex-direction:column;padding:8px 12px;border-radius:12px;background:light-dark(#F3F5FD,#1B2350);font-weight:700;font-size:15px;line-height:1.35}
+.agency li small{font-weight:500;font-size:13px;color:var(--band-sub)}
+.link-x{position:relative;width:64px;height:2px;border-top:2px dotted var(--rail);flex:none}
+.link-x svg{position:absolute;left:50%;top:50%;width:28px;height:28px;margin:-15px 0 0 -14px;padding:5px;border-radius:50%;color:#fff;
+  background:linear-gradient(135deg,var(--a1),var(--a2))}
+.core{display:flex;flex-direction:column;align-items:stretch}
+.chief{display:flex;flex-direction:column;align-items:center;padding:16px 20px;border-radius:20px;color:#fff;text-align:center;
+  background:linear-gradient(100deg,var(--a1),var(--a2));box-shadow:0 16px 34px -18px rgba(91,63,208,.6)}
+.chief b{font-size:20px;font-weight:900;letter-spacing:-.02em}
+.chief span{font-size:14px;opacity:.88}
+.vline{align-self:center;height:20px;border-left:2px dotted var(--rail)}
+.rank{display:flex;flex-direction:column;align-items:center;padding:10px 18px;border-radius:16px;text-align:center;
+  background:light-dark(#EEF0FF,#222B5C);border:1px solid var(--line)}
+.rank b{font-size:17px;font-weight:900;letter-spacing:-.02em;color:var(--band-ink)}
+.rank span{font-size:14px;color:var(--band-sub)}
+.team{display:flex;flex-direction:column;align-items:center;padding:14px 18px;border-radius:20px;text-align:center;
+  background:var(--card);border:2px solid light-dark(#C9CFF2,#3B4580)}
+.team b{font-size:18px;font-weight:900;letter-spacing:-.02em}
+.team span{font-size:14px;color:var(--band-sub)}
+.split{position:relative;height:52px}
+.split::before{content:"";position:absolute;left:50%;top:0;height:26px;border-left:2px dotted var(--rail)}
+.split::after{content:"";position:absolute;left:12.5%;right:12.5%;top:26px;height:26px;border:2px dotted var(--rail);border-bottom:0;border-radius:16px 16px 0 0}
+
+/* 분과 카드 */
+.pillars{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.pillar{--tint:light-dark(#EAF3FF,#17224E);display:flex;flex-direction:column;padding:22px 20px 18px;border-radius:22px;
+  background:var(--tint);border:1px solid var(--line);box-shadow:0 12px 30px -20px rgba(43,58,140,.4)}
+.t2{--tint:light-dark(#ECEEFF,#1A1F52)}.t3{--tint:light-dark(#F2EDFF,#1F1D52)}.t4{--tint:light-dark(#F6EEFF,#221C50)}
+.p-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.ico{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;color:var(--a2);background:var(--card);flex:none}
+.pillar h3{margin:0 0 6px;font-size:21px;font-weight:900;letter-spacing:-.02em;line-height:1.3;color:var(--band-ink)}
+.desc{margin:0 0 10px;color:var(--band-sub);font-size:15px}
+.steps{list-style:none;margin:auto 0 0;padding:0;display:grid}
+.steps li{position:relative;display:flex;align-items:center;gap:12px;padding:8px 0;font-size:15px;font-weight:500;color:var(--band-ink);line-height:1.4}
+.steps li+li::before{content:"";position:absolute;left:15px;top:-8px;height:16px;border-left:2px dotted var(--rail)}
+.s-ico{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;flex:none;font-size:13px;font-weight:900;color:var(--a1);background:var(--card);border:1px solid var(--line)}
+:root:not([data-theme=light]) .s-ico{color:light-dark(var(--a1),#B9C2FF)}
+
+/* ---------- 연구진 소개 ---------- */
+:root{--cur:light-dark(#6B4FD8,#A996FF);--ai:light-dark(#1F8A6B,#5FD3AE)}
+.ppl-top{display:flex;align-items:flex-end;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;margin-bottom:22px}
+.ppl-top .sec-lead{margin:0}
+.ppl-h{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px}
+.ppl-h svg{flex:none;color:var(--a2);width:.9em;height:.9em}
+.ppl-brand{background:linear-gradient(100deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+:root:not([data-theme=light]) .ppl-brand{background-image:light-dark(linear-gradient(100deg,var(--a1),var(--a2)),linear-gradient(100deg,#9FB0FF,#C3B2FF))}
+.picks{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.pick{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:18px;cursor:pointer;text-align:left;font-family:inherit;
+  background:var(--card);border:1.5px solid var(--line);color:var(--band-ink);transition:border-color .2s,background .2s,transform .2s}
+@media (hover:hover){.pick:hover{transform:translateY(-2px);border-color:light-dark(#C9CFF2,#3B4580)}}
+.pick.on{border-color:var(--a2);background:light-dark(#F1EDFF,#231F5A);box-shadow:0 10px 24px -16px rgba(91,63,208,.6)}
+.pick:focus-visible{outline:3px solid var(--a2);outline-offset:2px}
+.pick b{display:block;font-size:17px;font-weight:900;line-height:1.3}
+.pick small{font-size:13.5px;color:var(--band-sub)}
+.av{flex:none;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;overflow:hidden;font-weight:900;font-size:19px;color:#fff;
+  background:linear-gradient(135deg,var(--a1),var(--a2))}
+.av img{width:100%;height:100%;object-fit:cover;display:block}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0 16px;font-size:14px;font-weight:700;color:var(--band-ink)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend span::before{content:"";width:28px;height:5px;border-radius:3px;background:var(--c)}
+.prof{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:18px;align-items:start;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+.me{position:sticky;top:84px;display:flex;flex-direction:column;align-items:center;padding:28px 22px 18px;border-radius:22px;background:var(--card);border:1px solid var(--line);
+  box-shadow:0 12px 30px -20px rgba(43,58,140,.45)}
+.me .av{width:132px;height:132px;font-size:48px;box-shadow:0 0 0 4px var(--card),0 0 0 7px var(--a2)}
+.me h3{margin:16px 0 0;font-size:28px;font-weight:900;letter-spacing:-.02em}
+.me .role{font-size:15px;color:var(--band-sub)}
+.me blockquote{align-self:stretch;margin:16px 0 8px;padding:4px 0 4px 14px;border-left:3px solid var(--a2);font-size:15px;line-height:1.65;color:var(--band-ink)}
+.tally{list-style:none;align-self:stretch;margin:6px 0 0;padding:0}
+.tally li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 2px;border-top:1px solid var(--line);font-size:14.5px}
+.tally b{flex:none;font-weight:900;color:var(--c)}
+.cats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.cat{border-radius:22px;background:var(--card);border:1px solid var(--line);border-top:6px solid var(--c);padding:20px 22px 10px;
+  box-shadow:0 12px 30px -20px rgba(43,58,140,.45)}
+.cat h4{display:flex;align-items:baseline;gap:8px;margin:0 0 8px;font-size:19px;font-weight:900;letter-spacing:-.02em}
+.cat h4 i{font-style:normal;color:var(--c)}
+.cat ul{list-style:none;margin:0;padding:0}
+.cat li{display:grid;grid-template-columns:6.4em minmax(0,1fr);gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5}
+.cat li:last-child{border-bottom:0}
+.cat li span{font-weight:700;color:var(--c);font-variant-numeric:tabular-nums;white-space:nowrap;font-size:14.5px}
+.grp{display:inline-block;margin:12px 0 2px;padding:3px 11px;border-radius:999px;font-size:13px;font-weight:700;color:var(--c);
+  background:color-mix(in srgb,var(--c) 12%,transparent)}
+.cat .tbd{display:block;margin:6px 0 12px;padding:14px;border-radius:14px;border:1.5px dashed var(--line);text-align:center;font-size:14px;color:var(--band-sub)}
+@media (max-width:1100px){.picks{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:1000px){.cats{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){.picks{grid-template-columns:repeat(2,minmax(0,1fr))}.pick:first-child{grid-column:1/-1}.prof{grid-template-columns:minmax(0,1fr)}.me{position:static}}
+@media (max-width:420px){.pick{padding:8px 10px;gap:8px}.pick .av{width:40px;height:40px;font-size:16px}.pick b{font-size:16px}.pick small{font-size:12.5px}
+  .cat{padding:18px 16px 8px}.cat li{grid-template-columns:5.8em minmax(0,1fr);font-size:14.5px}}
+.foot{padding:28px max(5vw,16px);text-align:center;font-size:14px;color:var(--band-sub);border-top:1px solid var(--line)}
+.foot b{color:var(--band-ink)}
+.foot a{color:var(--a2);font-weight:700;text-decoration:none;margin-left:6px}
+
+/* ---------- 반응형 ---------- */
+@media (max-width:860px){
+  .org-top{grid-template-columns:minmax(0,1fr);gap:0}
+  .left{flex-direction:column;align-items:stretch}
+  .left .link-x{align-self:center;width:2px;height:40px;border-top:0;border-left:2px dotted var(--rail)}
+  .left .link-x svg{transform:rotate(90deg)}
+  .org-top > span:last-child{display:none}
+  .split{height:28px}.split::after{display:none}.split::before{height:28px}
+  .pillars{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:700px){
+  html{scroll-padding-top:60px}
+  .band{padding-block:36px}
+  .sec-h{font-size:28px}
+  .top{flex-wrap:nowrap;gap:4px;padding:4px max(3vw,8px)}
+  .brand{min-height:44px;font-size:0;gap:0;padding-right:4px;flex:none}
+  .brand svg{width:24px;height:24px}
+  .menu{flex:1;justify-content:flex-end;gap:0}
+  .menu button,.menu a{padding:0 11px;font-size:15px}
+}
+@media (max-width:560px){
+  .pillars{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:400px){.menu button,.menu a{padding:0 7px;font-size:14px}.top{padding-inline:6px}}
+
+/* ---------- 스크롤 등장 효과 ---------- */
+html.rv-on .rv{opacity:0;translate:0 28px;transition:opacity .7s cubic-bezier(.2,.7,.2,1),translate .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+html.rv-on .rv.in{opacity:1;translate:0 0}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}html.rv-on .rv{opacity:1;translate:none;transition:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('rv-on')</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="foot" viewBox="0 0 24 24">
+  <ellipse cx="7.2" cy="14.6" rx="3" ry="4.6" transform="rotate(-12 7.2 14.6)"/>
+  <circle cx="4.3" cy="8.1" r="1.1"/><circle cx="6.4" cy="7.1" r="1.15"/><circle cx="8.7" cy="7.4" r="1.05"/>
+  <g opacity=".75"><ellipse cx="16.6" cy="10.4" rx="2.7" ry="4.2" transform="rotate(10 16.6 10.4)"/>
+  <circle cx="15" cy="4.5" r="1"/><circle cx="17.1" cy="4" r="1.05"/><circle cx="19.2" cy="4.8" r=".95"/></g>
+</symbol></defs></svg>
+
+<header class="top">
+  <a class="brand" href="#" aria-label="맨 위로">
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><use href="#foot"/></svg>
+    AI-C.L.A.S.S.
+  </a>
+  <nav class="menu" aria-label="메뉴">
+    <button type="button" data-go="s-org">연구 조직</button>
+    <button type="button" data-go="s-people">함께 걷는 사람들</button>
+    <a href="https://ssy76100-boop.github.io/footprint/">발자취 →</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ① 연구 조직 -->
+  <section class="band soft" id="s-org">
+    <div class="wrap">
+      <h2 class="sec-h rv">연구 조직 및 역할</h2>
+      <p class="sec-lead rv">운영 총괄과 전담팀이 방향을 잡고, 네 분과가 연구과제를 나누어 실행합니다.</p>
+
+      <div class="org-top rv">
+        <div class="left">
+          <div class="agency">
+            <span class="agency-k">지도 · 지원 기관</span>
+            <ul>
+              <li>세종시교육청<small>연구학교 지원</small></li>
+              <li>교육부<small>연구 정책 · 컨설팅</small></li>
+            </ul>
+          </div>
+          <span class="link-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8l-4 4 4 4M17 8l4 4-4 4M3 12h18"/></svg></span>
+        </div>
+        <div class="core">
+          <div class="chief"><b>연구학교 운영 총괄</b><span>교장</span></div>
+          <span class="vline" aria-hidden="true"></span>
+          <div class="rank"><b>교감</b><span>연구 운영 지원 · 인력·예산 조정</span></div>
+          <span class="vline" aria-hidden="true"></span>
+          <div class="rank"><b>연구부장</b><span>연구 계획·실무 총괄 · 분과 간 협의 조정</span></div>
+          <span class="vline" aria-hidden="true"></span>
+          <div class="team"><b>연구학교 전담팀</b><span>교감 · 연구부장 · 분과장</span></div>
+        </div>
+        <span></span>
+      </div>
+
+      <div class="split" aria-hidden="true"></div>
+
+      <div class="pillars">
+        <article class="pillar rv" style="--d:0s">
+          <div class="p-top">
+            <span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.6-3.4 3-5.2 6-5.2s5.4 1.8 6 5.2"/><path d="M16 4.5a3.2 3.2 0 0 1 0 6.3M18 14.8c1.7.6 2.8 2.3 3 5.2"/></svg></span>
+            <span class="chip">연구과제 전반</span>
+          </div>
+          <h3>교원역량강화 분과</h3>
+          <p class="desc">모든 교원이 AI·디지털을 쓸 수 있는 바탕을 다집니다.</p>
+          <ol class="steps">
+            <li><span class="s-ico">1</span>교원 AI·디지털 역량 강화</li>
+            <li><span class="s-ico">2</span>전문적학습공동체 운영</li>
+          </ol>
+        </article>
+        <article class="pillar t2 rv" style="--d:.08s">
+          <div class="p-top">
+            <span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h10M4 19h7"/><path d="M15 16l2.5 2.5L22 14"/></svg></span>
+            <span class="chip">연구과제 1</span>
+          </div>
+          <h3>교육과정 워크플로우 분과</h3>
+          <p class="desc">교과와 학교자율시간을 AI·디지털로 다시 설계합니다.</p>
+          <ol class="steps">
+            <li><span class="s-ico">1</span>AI·디지털 활용 교육과정 분석</li>
+            <li><span class="s-ico">2</span>교육과정 설계 및 자료 개발</li>
+          </ol>
+        </article>
+        <article class="pillar t3 rv" style="--d:.16s">
+          <div class="p-top">
+            <span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/></svg></span>
+            <span class="chip">연구과제 2</span>
+          </div>
+          <h3>AI 리빙랩 수업 분과</h3>
+          <p class="desc">교실을 실험실 삼아 수업 모델을 만들고 다듬습니다.</p>
+          <ol class="steps">
+            <li><span class="s-ico">1</span>AI 리빙랩 수업 모델 개발·적용</li>
+            <li><span class="s-ico">2</span>교과·창체 연계 수업 운영</li>
+          </ol>
+        </article>
+        <article class="pillar t4 rv" style="--d:.24s">
+          <div class="p-top">
+            <span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+            <span class="chip">연구과제 3</span>
+          </div>
+          <h3>평가 · 피드백 분과</h3>
+          <p class="desc">학습 과정을 기록하고 되돌려 주는 평가를 만듭니다.</p>
+          <ol class="steps">
+            <li><span class="s-ico">1</span>AI·디지털 기반 평가 도구 개발</li>
+            <li><span class="s-ico">2</span>학습 과정 피드백 모델 운영</li>
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 연구진 소개 -->
+  <section class="band" id="s-people">
+    <div class="wrap">
+      <div class="ppl-top">
+        <h2 class="sec-h ppl-h rv"><svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><use href="#foot"/></svg><span class="ppl-brand">AI-C.L.A.S.S.</span> 함께 걷는 사람들</h2>
+        <p class="sec-lead rv">선생님을 누르면 그 선생님이 걸어온 길을 볼 수 있습니다.</p>
+      </div>
+      <div class="picks rv" id="picks" role="tablist" aria-label="함께 걷는 사람들"></div>
+      <div class="legend"><span style="--c:var(--cur)">교육과정·연구</span><span style="--c:var(--ai)">AI·디지털교육</span></div>
+      <div id="profile" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">AI·디지털 기반 교수·학습 혁신 프로젝트 <b>AI-C.L.A.S.S.</b><a href="https://ssy76100-boop.github.io/footprint/">교육 발자취 보기 →</a></footer>
+
+<script>
+{
+  // ================= 연구진 데이터 (여기만 고치면 화면이 바뀜) =================
+  // c: 'cur' = 교육과정·연구(보라) / 'ai' = AI·디지털교육(초록)
+  // photo: 'img/파일이름.png' 처럼 그림 경로를 넣으면 이니셜 대신 그림이 나옴
+  // 항목은 [연도, 내용] / 묶음이 필요하면 { g:'묶음 이름', items:[[연도, 내용], ...] }
+  const TEAM = [
+    { name:'송○○', role:'연구부장', photo:'',
+      quote:'',
+      cats:[
+        { t:'교육과정 연구 경력', c:'cur', items:[
+          ['2022','창의적교육과정 도움자료 개발위원'],
+          ['2022','생각자람교육과정 실천교사지원단'],
+          ['2022~2023','생각자람교육과정 도움자료 개발위원 및 운영분과 팀장'],
+          ['2022~2023','교육계획 집중 수립 주간 도움자료 개발위원'],
+          ['2024','학습연구년 학교자체평가 연구'],
+          ['2025','세종 학교평가 컨설팅 위원'],
+          ['2025~2026','세종시교육청 교육과정 지원단'],
+          ['2025~2026','세종시교육청 찾아가는 교육과정 컨설팅 강사'] ]},
+        { t:'AI·SW교육 연구 및 현장 지원', c:'ai', items:[
+          ['2020','SW교육 지원단'],
+          ['2020','스마트교육 선도교원'],
+          ['2021','블렌디드 수업 전문가 집단'],
+          ['2022~2023','세종 소프트웨어·인공지능교육 연구지원단'],
+          ['2023','AIEDAP Master 교원'],
+          ['2026','AI인터렉티브 실천연구회'] ]},
+        { t:'AI·SW 교수학습자료 개발 및 검토', c:'ai', items:[
+          ['2020','인공지능 기반 스마트교육 수업도구 매뉴얼 제작'],
+          ['2020','로봇프로그래밍 교수학습자료 개발'],
+          ['2020','세종–천안 교류 협력을 통한 인공지능 기반 스마트교육 자료 개발'],
+          ['2020','스마트교육 교수학습 자료집 개발 및 검토위원'],
+          ['2020~2021','원격수업 운영 지원 자료 개발 및 자문'],
+          ['2021','과학·수학·정보 학습자료 지원 영상 콘텐츠 초등 개발위원'],
+          ['2021','유치원 교사 디지털 역량 강화 자료개발 자문위원'],
+          ['2022','세종SW교육체험센터 「혼자서도 잘하는 프로그래밍」 영상 개발위원'] ]},
+        { t:'AI·SW교육 실천', c:'ai', items:[
+          { g:'교원 연수', items:[
+            ['2020','천안교육지원청 인공지능교육 선도학교 연수 강사'],
+            ['2020, 2022~2023','인공지능 기반 스마트교육 연수 강사'],
+            ['2026','AI중점학교 대상 생성형 AI 연수 강사'] ]},
+          { g:'학생·가족 체험교육', items:[
+            ['2020','제1회 로봇프로그래밍캠프 강사'],
+            ['2020','가족체험형 SW교육체험프로그램 강사'],
+            ['2021','학생참여형 SW교육체험프로그램 4·5기 블록코딩 중급 강사'],
+            ['2022','SWitch ON 블록코딩 강사'] ]},
+          { g:'교육축제·대회', items:[
+            ['2022','제4회 창의융합교육축제 SW교육 체험마당 운영팀장'],
+            ['2023','제6회 해커톤대회 심사위원'] ]} ]} ] },
+    { name:'강○○', role:'교원역량강화 분과', photo:'', quote:'',
+      cats:[ { t:'교육과정 연구 경력', c:'cur', items:[] }, { t:'AI·디지털교육 연구 및 실천', c:'ai', items:[] } ] },
+    { name:'김○○', role:'교육과정 워크플로우 분과', photo:'', quote:'',
+      cats:[
+        { t:'AI·디지털교육 실천', c:'ai', items:[
+          ['2021','e학습터 화상수업 강사'],
+          ['2024','디지털 새싹 강사'],
+          ['2025','디지털 새싹 강사'] ]} ] },
+    { name:'유○○', role:'AI 리빙랩 수업 분과', photo:'', quote:'',
+      cats:[
+        { t:'연구대회 실적', c:'cur', items:[
+          ['2020','제28회 EBS 교육방송연구대회 전국 1등급'],
+          ['2025','제19회 디지털교육연구대회 세종특별자치시 1등급, 전국 3등급'] ]},
+        { t:'연구 협력 및 컨설팅', c:'cur', items:[
+          ['2021~2023','EBS 교육방송연구대회 세종 지역 컨설턴트'],
+          ['2026','한국교육과정평가원 「PIRLS 2026 본검사」 연구협력교사'] ]},
+        { t:'AI·디지털교육 전문성', c:'ai', items:[
+          ['석사','한국교원대학교 인공지능 융합과 졸업'],
+          ['인증','Apple Learning Coach (APLP 인증 교사)'] ]},
+        { t:'AI·디지털교육 실천', c:'ai', items:[
+          ['2026','AI 선도·중점학교 주무 (창의정보부장)'] ]} ] },
+    { name:'조○', role:'평가·피드백 분과', photo:'', quote:'',
+      cats:[
+        { t:'AI·디지털교육 실천', c:'ai', items:[
+          ['2025학년도','AI교육활동 모델교 운영'] ]} ] }
+  ];
+  // ===========================================================================
+
+  const esc = v => String(v).replace(/[&<>"]/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[c]));
+  const av = p => p.photo ? `<span class="av"><img src="${esc(p.photo)}" alt=""></span>` : `<span class="av" aria-hidden="true">${esc(p.name[0])}</span>`;
+  const count = cat => cat.items.reduce((n, it) => n + (Array.isArray(it) ? 1 : it.items.length), 0);
+  const rows = list => list.map(([y, t]) => `<li><span>${String(y).split(', ').map(esc).join(',<br>')}</span>${esc(t)}</li>`).join('');
+  const body = cat => {
+    if (!count(cat)) return '<span class="tbd">내용 준비 중</span>';
+    let html = '', flat = [];
+    const flush = () => { if (flat.length) { html += `<ul>${rows(flat)}</ul>`; flat = []; } };
+    cat.items.forEach(it => { if (Array.isArray(it)) flat.push(it); else { flush(); html += `<span class="grp">${esc(it.g)}</span><ul>${rows(it.items)}</ul>`; } });
+    flush(); return html;
+  };
+  const C = { cur:'var(--cur)', ai:'var(--ai)' };
+
+  const picks = document.getElementById('picks'), prof = document.getElementById('profile');
+  picks.innerHTML = TEAM.map((p, i) =>
+    `<button type="button" class="pick" role="tab" data-i="${i}">${av(p)}<span><b>${esc(p.name)}</b><small>${esc(p.role)}</small></span></button>`).join('');
+
+  const show = i => {
+    const p = TEAM[i];
+    picks.querySelectorAll('.pick').forEach((b, k) => { b.classList.toggle('on', k === i); b.setAttribute('aria-selected', k === i); });
+    prof.innerHTML = `<div class="prof">
+      <aside class="me">${av(p)}<h3>${esc(p.name)}</h3><span class="role">${esc(p.role)}</span>
+        ${p.quote ? `<blockquote>${esc(p.quote)}</blockquote>` : ''}
+        <ul class="tally">${p.cats.map(c => `<li style="--c:${C[c.c]}">${esc(c.t)}<b>${count(c) ? count(c) + '건' : '—'}</b></li>`).join('')}</ul>
+      </aside>
+      <div class="cats">${p.cats.map((c, k) => `<article class="cat" style="--c:${C[c.c]}"><h4><i>${k + 1}</i>${esc(c.t)}</h4>${body(c)}</article>`).join('')}</div>
+    </div>`;
+  };
+  picks.addEventListener('click', e => { const b = e.target.closest('.pick'); if (b) show(+b.dataset.i); });
+  show(0);
+}
+</script>
+<script>
+{
+  // 메뉴 → 해당 구역으로 이동
+  document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => {
+    document.getElementById(b.dataset.go)?.scrollIntoView({ behavior: 'smooth' });
+  }));
+
+  // 지금 보고 있는 구역 표시
+  const btns = [...document.querySelectorAll('.menu button')];
+  const secs = btns.map(b => document.getElementById(b.dataset.go));
+  const mark = () => {
+    const y = scrollY + 140; let cur = null;
+    secs.forEach(s => { if (s.offsetTop <= y) cur = s.id; });
+    btns.forEach(b => b.classList.toggle('on', b.dataset.go === cur));
+  };
+  addEventListener('scroll', mark, { passive: true }); mark();
+
+  // 스크롤 등장 효과
+  const items = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: .12 });
+    items.forEach(i => io.observe(i));
+  } else items.forEach(i => i.classList.add('in'));
+}
+</script>
+</body>
+</html>
